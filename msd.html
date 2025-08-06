@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tier Landing Page</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(90deg, #0d3a8d 0%, #2059c6 100%);
+    color: white;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+  }
+
+  header .logo {
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  header .logo span {
+    color: #34d399; /* green arrow color */
+    font-weight: 900;
+    font-size: 1.6rem;
+    margin-left: 4px;
+  }
+
+  nav {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  nav .dropdown::after {
+    content: "▼";
+    font-size: 0.6rem;
+    margin-left: 5px;
+    display: inline-block;
+  }
+
+  .btn-work {
+    background-color: #fb7185;
+    color: white;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-work:hover {
+    background-color: #f43f5e;
+  }
+
+  main {
+    max-width: 1140px;
+    margin: 40px auto 80px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+  }
+
+  .left {
+    flex: 1 1 400px;
+  }
+
+  .left h1 {
+    font-size: 2.7rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .left p {
+    font-weight: 400;
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .left .btn-work {
+    padding: 14px 36px;
+    font-size: 1rem;
+  }
+
+  .right {
+    flex: 1 1 400px;
+    position: relative;
+  }
+
+  .phone-mockup {
+    background: #112f60;
+    border-radius: 20px;
+    padding: 20px;
+    max-width: 300px;
+    margin: 0 auto;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    position: relative;
+  }
+
+  .phone-screen {
+    background: white;
+    border-radius: 16px;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .rocket {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: #34d399;
+    clip-path: polygon(50% 0%, 90% 40%, 50% 100%, 10% 40%);
+  }
+
+  /* Simplified rocket icon placeholder */
+
+  /* Speech bubbles and graphs */
+  .speech-bubble {
+    background: #0ea5e9;
+    color: white;
+    border-radius: 12px;
+    padding: 8px 12px;
+    font-size: 0.75rem;
+    max-width: 140px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+
+  .speech-bubble.likes {
+    position: absolute;
+    top: 10%;
+    left: -130px;
+  }
+
+  .speech-bubble.stats {
+    position: absolute;
+    top: 60%;
+    right: -150px;
+  }
+
+  .speech-bubble.text-block {
+    margin-top: 10px;
+    background: #0c4a6e;
+    max-width: 160px;
+  }
+
+  /* Footer logos and stats */
+
+  .partners {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+
+  .partner-item {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    max-width: 120px;
+  }
+
+  .partner-item img {
+    max-width: 80px;
+    margin-bottom: 10px;
+  }
+
+  .stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat .number {
+    font-weight: 900;
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+  }
+
+  .stat .label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    max-width: 140px;
+  }
+
+  /* Responsive */
+
+  @media (max-width: 900px) {
+    main {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .right, .left {
+      flex: 1 1 100%;
+      text-align: center;
+    }
+
+    .speech-bubble.likes {
+      position: static;
+      margin-bottom: 20px;
+      max-width: none;
+    }
+
+    .speech-bubble.stats {
+      position: static;
+      margin-top: 20px;
+      max-width: none;
+    }
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">tier<span>↑</span></div>
+  <nav>
+    <a href="#">WHAT WE DO ▼</a>
+    <a href="#">BLOG</a>
+    <a href="#">PODCAST</a>
+    <a href="#">CAREERS</a>
+    <button class="btn-work">WORK WITH US</button>
+  </nav>
+</header>
+
+<main>
+  <div class="left">
+    <h1>Unlock Your Business Potential With Facebook & Instagram Advertising</h1>
+    <p>Facebook Premier Level Partner Agency</p>
+    <button class="btn-work">WORK WITH US</button>
+
+    <div class="partners" style="margin-top: 40px;">
+      <div class="partner-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo" />
+        <div>Marketing Partner</div>
+        <small>Facebook Premier Level Agency Partner</small>
+      </div>
+      <div class="partner-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google Logo" />
+        <div>Google Endorsed Marketing Partner</div>
+      </div>
+      <div class="partner-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Forbes_logo.svg" alt="Forbes Logo" />
+        <div>Forbes Agency Council Member</div>
+      </div>
+      <div class="partner-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Inc5000logo.png" alt="Inc 5000 Logo" />
+        <div>Inc. 5000 Fastest Growing Company</div>
+      </div>
+    </div>
+
+    <div class="stats-container">
+      <div class="stat">
+        <div class="number">$100M</div>
+        <div class="label">In Annual Digital Ad Spend</div>
+      </div>
+      <div class="stat">
+        <div class="number">15+</div>
+        <div class="label">Years of Facebook Advertising Experience</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="phone-mockup">
+      <div class="phone-screen">
+        <div class="rocket"></div>
+        <div class="speech-bubble likes" style="top: 10%; left: -130px;">100K ❤️</div>
+        <div class="speech-bubble stats" style="top: 60%; right: -150px;">
+          <div>Work Packages</div>
+          <small>$324,000 • 294,000 • 4,621</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>
